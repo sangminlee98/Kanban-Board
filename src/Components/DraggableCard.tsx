@@ -14,11 +14,10 @@ interface IDraggableCardProps {
   index: number;
 }
 const DraggableCard = ({toDo, index}: IDraggableCardProps) => {
-  console.log(toDo);
   return (
     <Draggable draggableId={toDo} index={index}>
-      {(magic) => (
-        <Card ref={magic.innerRef} {...magic.draggableProps} {...magic.dragHandleProps}>
+      {(provided) => (
+        <Card ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
           {toDo}
         </Card>)}
     </Draggable>
