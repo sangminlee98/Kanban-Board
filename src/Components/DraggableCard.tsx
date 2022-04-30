@@ -12,15 +12,16 @@ const Card = styled.div<{isDragging: boolean}>`
 `;
 
 interface IDraggableCardProps {
-  toDo: string;
+  toDoId: number;
+  toDoText: string;
   index: number;
 }
-const DraggableCard = ({toDo, index}: IDraggableCardProps) => {
+const DraggableCard = ({toDoId, toDoText, index}: IDraggableCardProps) => {
   return (
-    <Draggable draggableId={toDo} index={index}>
+    <Draggable draggableId={toDoId+""} index={index}>
       {(provided, snapshot) => (
         <Card isDragging={snapshot.isDragging} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-          {toDo}
+          {toDoText}
         </Card>)}
     </Draggable>
   );
