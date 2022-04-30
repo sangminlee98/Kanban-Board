@@ -6,7 +6,7 @@ import DraggableCard from './DraggableCard';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px 10px;
+  padding: 10px 0px;
   background-color: ${props => props.theme.boardColor};
   border-radius: 5px;
   min-height: 200px;
@@ -24,7 +24,8 @@ interface IAreaProps {
 }
 
 const Area = styled.div<IAreaProps>`
-  background-color: ${props => props.isDraggingOver ? 'pink' : props.draggingFromThisWith ? 'red' : 'blue'};
+  padding: 10px 10px;
+  background-color: ${props => props.isDraggingOver ? '#dfe6e9' : props.draggingFromThisWith ? '#b2bec3' : 'transparent'};
   flex-grow: 1;
   transition: background-color .3s ease-in-out;
 `;
