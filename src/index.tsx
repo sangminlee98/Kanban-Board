@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+// import App from "./App";
 import { RecoilRoot } from "recoil";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { theme } from "./theme";
-import Test from "./Test";
+import Selector from "./Selector";
 
 const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -75,7 +75,7 @@ root.render(
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       {/* <App /> */}
-      <Test />
+      <Selector />
     </ThemeProvider>
   </RecoilRoot>
 );

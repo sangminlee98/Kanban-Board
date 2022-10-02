@@ -29,9 +29,21 @@ const Schedule = () => {
             {time.map((_, timeIndex) => {
               return (
                 <TimeCell
+                  isMouseDown={isMouseDown}
                   isSelected={day[dayIndex][timeIndex]}
                   key={timeIndex}
-                  onMouseOver={() => {
+                  onMouseOut={() => {
+                    if (isMouseDown) {
+                      setDay((prev) => {
+                        const copyArr = prev;
+                        copyArr[dayIndex][timeIndex] =
+                          !prev[dayIndex][timeIndex];
+
+                        return copyArr;
+                      });
+                    }
+                  }}
+                  onMouseUp={() => {
                     if (isMouseDown) {
                       setDay((prev) => {
                         const copyArr = prev;
@@ -64,7 +76,7 @@ const DayTable = styled.div`
   gap: 10px;
 `;
 
-const TimeCell = styled.div<{ isSelected: boolean }>`
+const TimeCell = styled.div<{ isSelected: boolean; isMouseDown: boolean }>`
   width: 90px;
   height: 30px;
   border: 1px solid black;
